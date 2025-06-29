@@ -17,10 +17,10 @@ A dynamic and interactive frontend project that allows you to create and roll cu
 ## 🚀 How to Use
 
 1.  **Clone the Repository:**
-    ```bash
+    bash
     git clone [https://github.com/GastonRLdL/diceGenerator.git](https://github.com/GastonRLdL/diceGenerator.git)
     cd diceGenerator
-    ```
+    
 2.  **Open `index.html`:** Simply open the `index.html` file in your preferred web browser. No local server is required to run this project.
 
 ---
