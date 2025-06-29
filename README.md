@@ -17,10 +17,11 @@ A dynamic and interactive frontend project that allows you to create and roll cu
 ## 🚀 How to Use
 
 1.  **Clone the Repository:**
-    bash
-    git clone [https://github.com/GastonRLdL/diceGenerator.git](https://github.com/GastonRLdL/diceGenerator.git)
-    cd diceGenerator
+    ```bash
+    git clone https://github.com/GastonRLdL/diceGenerator.git
     
+    cd diceGenerator
+    ```
 2.  **Open `index.html`:** Simply open the `index.html` file in your preferred web browser. No local server is required to run this project.
 
 ---
@@ -65,6 +66,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ## 📧 Contact
 
-Gastón Roman - [gastonrldl@gmail.com](mailto:gastonrldl@gmail.com)
+Gastón Román - [gastonrldl@gmail.com](mailto:gastonrldl@gmail.com)
 
 Project Link: [https://github.com/GastonRLdL/diceGenerator](https://github.com/GastonRLdL/diceGenerator)
