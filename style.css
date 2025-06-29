@@ -1,0 +1,109 @@
+body {
+    background-color: #000; /* Black background */
+    color: #0F0; /* Bright green text */
+    font-family: 'Courier New', Courier, monospace; /* Terminal-like font */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for more vertical space */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Small general padding */
+    box-sizing: border-box; /* Include padding in total size */
+}
+
+.container {
+    background-color: #000; /* Ensure black background for the container */
+    border: 1px solid #0F0; /* Green border */
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Subtle green shadow */
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #0F0;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    margin-bottom: 30px;
+}
+
+.section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #050; /* Subtle dashed separator line */
+}
+
+.section:last-of-type {
+    border-bottom: none; /* No line on the last one */
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+input[type="number"],
+input[type="text"] {
+    background-color: #000;
+    border: 1px solid #0F0;
+    color: #0F0;
+    padding: 8px;
+    width: calc(100% - 20px); /* Adjust for padding */
+    margin-top: 5px;
+    box-sizing: border-box; /* So padding doesn't overflow */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+    /* Custom styles for checkboxes/radios are more complex for this aesthetic */
+}
+
+button {
+    background-color: #050; /* Dark green for buttons */
+    color: #0F0; /* Bright green text */
+    border: 1px solid #0F0;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #0F0; /* Bright green on hover */
+    color: #000; /* Black text on hover */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+}
+
+.result-section {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#dice-result {
+    font-size: 1.5em;
+    color: #0F0; /* More intense green for the result */
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.9);
+}
+
+/* Styles for dynamically generated custom face inputs */
+.custom-face-input {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-face-input label {
+    margin-right: 10px;
+    width: 100px; /* Fixed width for label */
+    text-align: right;
+}
+
+.custom-face-input input {
+    flex-grow: 1; /* To take up remaining space */
+}
