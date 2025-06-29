@@ -26,20 +26,16 @@ import {
     resetDiceButton
 } from './elements.js';
 
-import { availableFaces, eliminatedFaces } from './state.js'; // Import state variables (though not directly modified here)
+import { availableFaces, eliminatedFaces } from './state.js';
 
 // --- Function to Generate Custom Face Input Fields Dynamically ---
 export function generateCustomFaceInputs() {
-    // Clear any previously generated inputs to avoid duplicates
     customFacesContainer.innerHTML = '';
-
     const numFaces = parseInt(numFacesInput.value);
-
-    // Only generate inputs if 'Custom' mode is selected
     if (modeCustomRadio.checked) {
         for (let i = 0; i < numFaces; i++) {
             const faceDiv = document.createElement('div');
-            faceDiv.className = 'custom-face-input'; // Apply CSS styling
+            faceDiv.className = 'custom-face-input';
             faceDiv.innerHTML = `
                 <label for="face-${i + 1}">Face ${i + 1}:</label>
                 <input type="text" id="face-${i + 1}" value="${i + 1}">
@@ -52,10 +48,10 @@ export function generateCustomFaceInputs() {
 // --- Function to Toggle Visibility of Custom Faces Container ---
 export function toggleCustomFacesContainer() {
     if (modeCustomRadio.checked) {
-        customFacesContainer.style.display = 'block'; // Show the container
-        generateCustomFaceInputs(); // And generate the inputs
+        customFacesContainer.style.display = 'block';
+        generateCustomFaceInputs();
     } else {
-        customFacesContainer.style.display = 'none'; // Hide the container
+        customFacesContainer.style.display = 'none'; 
     }
 }
 

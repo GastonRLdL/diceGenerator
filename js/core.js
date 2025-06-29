@@ -35,25 +35,21 @@ import {
 
 // --- Function to Roll the Die ---
 export function rollDice() {
-    // 1. Initialize/Re-initialize availableFaces based on mode
     if (eliminationModeCheckbox.checked) {
-        // If in elimination mode, and it's the first roll or after reset,
-        // or if we just turned elimination mode on, load all faces.
         if (availableFaces.length === 0 && eliminatedFaces.length === 0) {
             setAvailableFaces(getDiceFaces());
         }
     } else {
-        // If NOT in elimination mode, always re-initialize available faces
         setAvailableFaces(getDiceFaces());
-        clearEliminatedFaces(); // No eliminated faces in standard mode
-        updateEliminatedFacesDisplay(); // Hide eliminated faces display
+        clearEliminatedFaces();
+        updateEliminatedFacesDisplay();
     }
 
     // 2. Check if there are any faces left to roll (relevant for elimination mode)
     if (availableFaces.length === 0) {
         updateResultDisplay("No faces left!");
-        setButtonStates(false, true); // Disable roll, show reset
-        return; // Exit function, no roll possible
+        setButtonStates(false, true);
+        return;
     }
 
     // 3. Choose a random face from `availableFaces`
@@ -65,29 +61,24 @@ export function rollDice() {
 
     // 5. Handle Elimination Mode logic
     if (eliminationModeCheckbox.checked) {
-        // Move the rolled face from 'availableFaces' to 'eliminatedFaces'
         const eliminatedFace = availableFaces.splice(randomIndex, 1)[0];
         addEliminatedFace(eliminatedFace);
-
-        // Update the list of eliminated faces in the UI
         updateEliminatedFacesDisplay();
-
-        // If no faces are left after this roll, disable roll button and show reset
         if (availableFaces.length === 0) {
             setButtonStates(false, true);
         } else {
-            setButtonStates(true, true); // Ensure roll is enabled, reset is visible
+            setButtonStates(true, true);
         }
     } else {
-        setButtonStates(true, false); // Ensure roll is enabled, reset is hidden
+        setButtonStates(true, false);
     }
 }
 
 // --- Function to Reset the Die ---
 export function resetDice() {
-    setAvailableFaces(getDiceFaces()); // Reload all original faces
-    clearEliminatedFaces(); // Clear the list of eliminated faces
-    updateEliminatedFacesDisplay(); // Hide eliminated info section
-    updateResultDisplay('--'); // Reset result display
-    setButtonStates(true, false); // Enable roll button, hide reset button
+    setAvailableFaces(getDiceFaces());
+    clearEliminatedFaces();
+    updateEliminatedFacesDisplay();
+    updateResultDisplay('--');
+    setButtonStates(true, false);
 }

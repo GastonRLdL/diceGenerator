@@ -43,18 +43,18 @@ import {
 
 // Listen for changes in the number of faces input
 numFacesInput.addEventListener('input', () => {
-    generateCustomFaceInputs(); // UI update
-    resetDice(); // Reset dice state
+    generateCustomFaceInputs();
+    resetDice();
 });
 
 // Listen for changes in the dice mode (Standard/Custom) radio buttons
 modeStandardRadio.addEventListener('change', () => {
-    toggleCustomFacesContainer(); // UI update
-    resetDice(); // Reset dice state
+    toggleCustomFacesContainer();
+    resetDice();
 });
 modeCustomRadio.addEventListener('change', () => {
-    toggleCustomFacesContainer(); // UI update
-    resetDice(); // Reset dice state
+    toggleCustomFacesContainer();
+    resetDice();
 });
 
 // Listen for clicks on the 'Roll Dice' button
@@ -65,16 +65,13 @@ resetDiceButton.addEventListener('click', resetDice);
 
 // Listener for the Elimination Mode checkbox
 eliminationModeCheckbox.addEventListener('change', () => {
-    resetDice(); // Reset dice state
+    resetDice();
 });
 
 // Listener for changes in custom face inputs (dynamic inputs)
 // We use event delegation here because these inputs are added/removed dynamically.
 customFacesContainer.addEventListener('input', (event) => {
-    // Check if the event target is an INPUT element within the container
     if (event.target.tagName === 'INPUT' && eliminationModeCheckbox.checked) {
-        // Only reset if an actual input element inside the container changed
-        // and if in elimination mode (as changes to custom faces impact available faces)
         resetDice();
     }
 });
@@ -85,5 +82,5 @@ customFacesContainer.addEventListener('input', (event) => {
 // =======================================================
 
 // This ensures the UI and dice state are correct when the page first loads.
-toggleCustomFacesContainer(); // Sets initial visibility of custom face inputs based on default radio
-resetDice(); // Initializes the die's state (available faces, etc.)
+toggleCustomFacesContainer();
+resetDice();

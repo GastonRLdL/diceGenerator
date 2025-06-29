@@ -18,8 +18,8 @@
 import { numFacesInput, modeStandardRadio, customFacesContainer } from './elements.js';
 
 // Initial state variables for the die
-export let availableFaces = []; // Stores faces that can currently be rolled.
-export let eliminatedFaces = []; // Stores faces that have been eliminated in elimination mode.
+export let availableFaces = [];
+export let eliminatedFaces = [];
 
 // --- Function to Get Current Die Faces ---
 export function getDiceFaces() {
@@ -27,15 +27,12 @@ export function getDiceFaces() {
     const faces = [];
 
     if (modeStandardRadio.checked) {
-        // Standard Mode: Faces are numbers from 1 to N
         for (let i = 1; i <= numFaces; i++) {
-            faces.push(i.toString()); // Convert to string for consistency with custom
+            faces.push(i.toString());
         }
-    } else { // modeCustomRadio.checked (implicitly handled by app.js logic)
-        // Custom Mode: Collect values from custom input fields
+    } else {
         const customInputs = customFacesContainer.querySelectorAll('input[type="text"]');
         customInputs.forEach((input, index) => {
-            // Use default value (face number) if input is empty
             faces.push(input.value.trim() !== '' ? input.value.trim() : (index + 1).toString());
         });
     }
