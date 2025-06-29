@@ -1,3 +1,18 @@
+/* ========================================================================== */
+/*                                                                            */
+/* diceGenerator                                                              */
+/*                                                                            */
+/* File:    ./style.css                                                       */
+/* Author:  Gaston Roman <[gastonrldl@gmail.com]>                             */
+/* Created: [6/29/2025]                                                       */
+/* Updated: [6/29/2025]                                                       */
+/*                                                                            */
+/* License: MIT                                                               */
+/* ========================================================================== */
+
+/* Defines the styling for the diceGenerator application, */
+/* implementing a minimalist terminal-like aesthetic.     */
+
 body {
     background-color: #000; /* Black background */
     color: #0F0; /* Bright green text */
