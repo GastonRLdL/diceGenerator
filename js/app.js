@@ -13,64 +13,77 @@
 /* Main entry point for the diceGenerator application.                      */
 /* Imports all necessary modules and sets up global event listeners.        */
 
-// Import DOM elements and state variables/functions needed by this module
+// Import elements from elements.js
 import {
     numFacesInput,
+    modeStandardRadio,
     modeCustomRadio,
     customFacesContainer,
-    eliminatedFacesList,
-    eliminatedFacesInfo,
-    diceResultSpan,
     rollDiceButton,
+    eliminationModeCheckbox,
     resetDiceButton
 } from './elements.js';
 
-import { availableFaces, eliminatedFaces } from './state.js'; // Import state variables (though not directly modified here)
+// Import core logic functions from core.js
+import {
+    rollDice,
+    resetDice
+} from './core.js';
 
-// --- Function to Generate Custom Face Input Fields Dynamically ---
-export function generateCustomFaceInputs() {
-    // Clear any previously generated inputs to avoid duplicates
-    customFacesContainer.innerHTML = '';
+// Import UI manipulation functions from ui.js
+import {
+    toggleCustomFacesContainer,
+    generateCustomFaceInputs
+} from './ui.js';
 
-    const numFaces = parseInt(numFacesInput.value);
 
-    // Only generate inputs if 'Custom' mode is selected
-    if (modeCustomRadio.checked) {
-        for (let i = 0; i < numFaces; i++) {
-            const faceDiv = document.createElement('div');
-            faceDiv.className = 'custom-face-input'; // Apply CSS styling
-            faceDiv.innerHTML = `
-                <label for="face-${i + 1}">Face ${i + 1}:</label>
-                <input type="text" id="face-${i + 1}" value="${i + 1}">
-            `;
-            customFacesContainer.appendChild(faceDiv);
-        }
+// =======================================================
+// === EVENT LISTENERS (Centralized here) ===
+// =======================================================
+
+// Listen for changes in the number of faces input
+numFacesInput.addEventListener('input', () => {
+    generateCustomFaceInputs(); // UI update
+    resetDice(); // Reset dice state
+});
+
+// Listen for changes in the dice mode (Standard/Custom) radio buttons
+modeStandardRadio.addEventListener('change', () => {
+    toggleCustomFacesContainer(); // UI update
+    resetDice(); // Reset dice state
+});
+modeCustomRadio.addEventListener('change', () => {
+    toggleCustomFacesContainer(); // UI update
+    resetDice(); // Reset dice state
+});
+
+// Listen for clicks on the 'Roll Dice' button
+rollDiceButton.addEventListener('click', rollDice);
+
+// Listen for clicks on the 'Reset Dice' button
+resetDiceButton.addEventListener('click', resetDice);
+
+// Listener for the Elimination Mode checkbox
+eliminationModeCheckbox.addEventListener('change', () => {
+    resetDice(); // Reset dice state
+});
+
+// Listener for changes in custom face inputs (dynamic inputs)
+// We use event delegation here because these inputs are added/removed dynamically.
+customFacesContainer.addEventListener('input', (event) => {
+    // Check if the event target is an INPUT element within the container
+    if (event.target.tagName === 'INPUT' && eliminationModeCheckbox.checked) {
+        // Only reset if an actual input element inside the container changed
+        // and if in elimination mode (as changes to custom faces impact available faces)
+        resetDice();
     }
-}
+});
 
-// --- Function to Toggle Visibility of Custom Faces Container ---
-export function toggleCustomFacesContainer() {
-    if (modeCustomRadio.checked) {
-        customFacesContainer.style.display = 'block'; // Show the container
-        generateCustomFaceInputs(); // And generate the inputs
-    } else {
-        customFacesContainer.style.display = 'none'; // Hide the container
-    }
-}
 
-// --- Function to update the result display ---
-export function updateResultDisplay(result) {
-    diceResultSpan.textContent = result;
-}
+// =======================================================
+// === Initial Setup When Page Loads ===
+// =======================================================
 
-// --- Function to update the eliminated faces display ---
-export function updateEliminatedFacesDisplay() {
-    eliminatedFacesList.textContent = eliminatedFaces.join(', ');
-    eliminatedFacesInfo.style.display = eliminatedFaces.length > 0 ? 'block' : 'none';
-}
-
-// --- Function to control button states ---
-export function setButtonStates(rollEnabled, resetVisible) {
-    rollDiceButton.disabled = !rollEnabled;
-    resetDiceButton.style.display = resetVisible ? 'block' : 'none';
-}
+// This ensures the UI and dice state are correct when the page first loads.
+toggleCustomFacesContainer(); // Sets initial visibility of custom face inputs based on default radio
+resetDice(); // Initializes the die's state (available faces, etc.)

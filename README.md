@@ -14,15 +14,36 @@ A dynamic and interactive frontend project that allows you to create and roll cu
 
 ---
 
-## 🚀 How to Use
+### 🚀 How to Use
 
-1.  **Clone the Repository:**
+Since this project utilizes **ES Modules (`<script type="module">`)**, it **cannot be run by simply opening the `index.html` file directly** in your browser from your local file system (`file:///` protocol). To comply with browser security policies (CORS), the application must be served via a **local web server**.
+
+#### Option 1: Using GitHub Codespaces (Recommended and Easiest)
+
+If you are working within a GitHub Codespace (or any VS Code-based environment that integrates Live Preview):
+
+1.  Open your Codespace for this repository.
+2.  In the VS Code file explorer (left sidebar), right-click on the **`index.html`** file.
+3.  Select the option **"Open with Live Preview"** (or "Show Live Preview").
+4.  This will automatically start a development web server and open the application in a new browser tab or an integrated panel.
+
+#### Option 2: Using a Local Web Server (Outside Codespaces / Local Development)
+
+If you have cloned the repository to your local machine:
+
+1.  **Ensure you have Python installed** (it's pre-installed on most operating systems).
+2.  Open your terminal or command prompt.
+3.  Navigate to the root directory of your `diceGenerator` project where `index.html` is located:
     ```bash
-    git clone https://github.com/GastonRLdL/diceGenerator.git
-    
-    cd diceGenerator
+    cd /path/to/your/project/diceGenerator
     ```
-2.  **Open `index.html`:** Simply open the `index.html` file in your preferred web browser. No local server is required to run this project.
+4.  Start a simple HTTP server (for example, on port 8000):
+    ```bash
+    python3 -m http.server 8000
+    # If you only have 'python' and not 'python3': python -m http.server 8000
+    ```
+5.  Open your web browser and navigate to the URL: `http://localhost:8000`
+    The application should load and function correctly.
 
 ---
 
