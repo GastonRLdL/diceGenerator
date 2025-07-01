@@ -14,36 +14,24 @@ A dynamic and interactive frontend project that allows you to create and roll cu
 
 ---
 
-### 🚀 How to Use
+## 🚀 How to Use and Run the Project
 
-Since this project utilizes **ES Modules (`<script type="module">`)**, it **cannot be run by simply opening the `index.html` file directly** in your browser from your local file system (`file:///` protocol). To comply with browser security policies (CORS), the application must be served via a **local web server**.
+This project is designed to function as a modern web application. To access and use the Dice Generator:
 
-#### Option 1: Using GitHub Codespaces (Recommended and Easiest)
+#### Option 1: Access Directly on the Web (Recommended)
 
-If you are working within a GitHub Codespace (or any VS Code-based environment that integrates Live Preview):
+The latest version of the Dice Generator is hosted on GitHub Pages and is directly accessible from your web browser. **No local setup is required!**
 
-1.  Open your Codespace for this repository.
-2.  In the VS Code file explorer (left sidebar), right-click on the **`index.html`** file.
-3.  Select the option **"Open with Live Preview"** (or "Show Live Preview").
-4.  This will automatically start a development web server and open the application in a new browser tab or an integrated panel.
+* **Visit the web application here:** [https://gastonrldl.github.io/diceGenerator/](https://gastonrldl.github.io/diceGenerator/)
 
-#### Option 2: Using a Local Web Server (Outside Codespaces / Local Development)
+#### Option 2: "Install" as a Mobile App (PWA - Coming Soon)
 
-If you have cloned the repository to your local machine:
+This project is being developed as a **Progressive Web App (PWA)**, meaning you can "install" it directly from your browser on your mobile or desktop device, and it will function like a native app, even offline.
 
-1.  **Ensure you have Python installed** (it's pre-installed on most operating systems).
-2.  Open your terminal or command prompt.
-3.  Navigate to the root directory of your `diceGenerator` project where `index.html` is located:
-    ```bash
-    cd /path/to/your/project/diceGenerator
-    ```
-4.  Start a simple HTTP server (for example, on port 8000):
-    ```bash
-    python3 -m http.server 8000
-    # If you only have 'python' and not 'python3': python -m http.server 8000
-    ```
-5.  Open your web browser and navigate to the URL: `http://localhost:8000`
-    The application should load and function correctly.
+* **To install it (once PWA functionality is complete):**
+    1.  Open the web application URL ([https://gastonrldl.github.io/diceGenerator/](https://gastonrldl.github.io/diceGenerator/)) in your mobile device's browser (Chrome, Edge, Safari, etc.).
+    2.  Look for the "Add to Home Screen" option or an install icon (often a `+` sign in a circle or a small computer screen with a downward arrow in the browser's URL bar).
+    3.  Follow the instructions to install the application.
 
 ---
 
